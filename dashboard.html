@@ -13,7 +13,13 @@
             flex-direction: column;
             height: 100vh;
         }
-        .header, .footer {
+        .header {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            position: relative; /* Added for profile icon positioning */
+        }
+        .footer {
             background-color: #f1f1f1;
             padding: 20px;
             text-align: center;
@@ -34,23 +40,47 @@
         .dashboard-row {
             display: flex;
             margin-bottom: 20px;
-            background-color: #28a745;
         }
         .dashboard-item {
             flex: 1;
             padding: 20px;
-            background-color: #28a745; /* Light green background */
+            background-color: #90ee90; /* Light green background */
             margin-right: 20px;
             text-align: center;
         }
         .dashboard-item:last-child {
             margin-right: 0;
         }
+        .profile-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+    <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWVpW4hvNZ3pyIzUVn1BWqFqyCa0Q1f1U",
+      authDomain: "deerhack-d746a.firebaseapp.com",
+      databaseURL: "https://deerhack-d746a-default-rtdb.firebaseio.com",
+      projectId: "deerhack-d746a",
+      storageBucket: "deerhack-d746a.appspot.com",
+      messagingSenderId: "163244075333",
+      appId: "1:163244075333:web:8c7916f3aae0e28371f62c",
+      measurementId: "G-WGZ42QDYWV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    
+    </script>
 </head>
 <body>
     <div class="header">
         <h1>Dashboard</h1>
+        <div class="profile-icon">
+            <span>User</span> | <button id="logoutBtn">Logout</button>
+        </div>
     </div>
 
     <div class="dashboard-row">
@@ -79,9 +109,17 @@
     <div class="footer">
         <p>Dashboard Footer</p>
     </div>
+
+    <script>
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        firebase.auth().signOut().then(function() {
+          console.log('Successfully logged out');
+          // Redirect to login page or show a message
+          window.location.href = '/index.html'; // Adjust the path to your login page
+        }).catch(function(error) {
+          console.error('Sign Out Error', error);
+        });
+      });
+    </script>
 </body>
-<script type="module"></script>
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-</script>
 </html>
