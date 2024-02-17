@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header, .footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar {
+            background-color: #ddd;
+            padding: 20px;
+            width: 200px;
+            height: calc(100% - 40px);
+            overflow: auto;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            height: calc(100% - 40px);
+            overflow: auto;
+        }
+        .dashboard-row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .dashboard-item {
+            flex: 1;
+            padding: 20px;
+            background-color: #28a745; /* Light green background */
+            margin-right: 20px;
+            text-align: center;
+        }
+        .dashboard-item:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard</h1>
+    </div>
+
+    <div class="dashboard-row">
+        <div class="sidebar">
+            <a href="#section1">Section 1</a><br>
+            <a href="#section2">Section 2</a><br>
+            <a href="#section3">Section 3</a>
+        </div>
+
+        <div class="content">
+            <div id="section1" class="dashboard-item">
+                <h2>Section 1</h2>
+                <p>Content for Section 1...</p>
+            </div>
+            <div id="section2" class="dashboard-item">
+                <h2>Section 2</h2>
+                <p>Content for Section 2...</p>
+            </div>
+            <div id="section3" class="dashboard-item">
+                <h2>Section 3</h2>
+                <p>Content for Section 3...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Dashboard Footer</p>
+    </div>
+</body>
+</html>
